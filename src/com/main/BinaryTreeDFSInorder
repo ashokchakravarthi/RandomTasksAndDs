@@ -1,0 +1,42 @@
+public class BinaryTreeDFSInorder
+{
+    public static void main(String[]  args)
+    {
+        Node head = new Node(10);
+        Node left = new Node(8);
+        Node right = new Node(14);
+        head.left = left;
+        head.right = right;
+        head.left.left = new Node(5);
+        head.left.right = new Node(9);
+        head.left.left.left = new Node(4);
+        head.left.left.right = new Node(7);
+        head.right.left = new Node(13);
+        head.right.right = new Node(18);
+        traverse(head);
+    }
+
+    public static void traverse(Node node)
+    {
+        if(node == null)
+        {
+            return;
+        }
+
+        traverse(node.left);
+        System.out.println(node.value);
+        traverse(node.right);
+    }
+}
+
+
+class Node
+{
+    int value;
+    Node left;
+    Node right;
+    Node(int value)
+    {
+        this.value = value;
+    }
+}
